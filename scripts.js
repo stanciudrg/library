@@ -65,6 +65,17 @@ Book.prototype.toggleReadState = function () {
 
 }
 
+Book.prototype.removeBook = function () {
+
+    this.bookElement.remove();
+    libraryArray.splice(this.bookElement.dataset.count, 1);
+
+    libraryArray.forEach((object) => {
+        object.bookElement.dataset.count = libraryArray.indexOf(object);
+    })
+
+}
+
 function addBookToLibrary(e) {
 
     e.preventDefault();
@@ -84,6 +95,11 @@ function bookActions(e) {
 
         const elementIndex = e.target.parentElement.dataset.count;
         libraryArray[elementIndex].toggleReadState(e);
+
+    } else if (e.target.classList.contains('delete-button')) {
+
+        const elementIndex = e.target.parentElement.dataset.count;
+        libraryArray[elementIndex].removeBook();
 
     }
 
