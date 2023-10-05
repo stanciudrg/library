@@ -1,5 +1,6 @@
 const libraryArray = [];
 const submitButton = document.querySelector(".add-book").addEventListener('click', addBookToLibrary);
+const booksContainer = document.querySelector('#books-container').addEventListener('click', bookActions);
 
 const showForm = document.querySelector('.new-book').addEventListener('click', (e) => document.querySelector('dialog').showModal());
 
@@ -74,5 +75,16 @@ function addBookToLibrary(e) {
     libraryArray.push(bookObject);
     document.querySelector('dialog').close();
     document.querySelector('form').reset();
+
+}
+
+function bookActions(e) {
+
+    if (e.target.classList.contains('read-state_toggler')) {
+
+        const elementIndex = e.target.parentElement.dataset.count;
+        libraryArray[elementIndex].toggleReadState(e);
+
+    }
 
 }
