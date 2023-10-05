@@ -1,3 +1,13 @@
+const showForm = document.querySelector('.new-book').addEventListener('click', (e) => document.querySelector('dialog').showModal());
+
+const closeForm = document.querySelector('.close-button').addEventListener('click', (e) => {
+
+    e.preventDefault();
+    document.querySelector('dialog').close();
+    document.querySelector('form').reset();
+
+})
+
 function Book(title, author, pages, readState) {
 
     this.title = title ? title : "No title"
@@ -6,4 +16,3 @@ function Book(title, author, pages, readState) {
     this.readState = readState ? true : false;
 
 }
-

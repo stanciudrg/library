@@ -21,32 +21,34 @@
                 </div>
             </div>
             <button class="new-book">New book</button>
-            <form action="">
-                <header class="form-header">
-                    <h2>Add a book</h2>
-                    <button class="close-button">X</button>
-                </header>
-                <fieldset>
-                    <legend>Book details</legend>
-                    <div class="title_form-container">
-                        <label for="title">Title</label>
-                        <input type="text" id="title" name="title">
-                    </div>
-                    <div class="author_form-container">
-                        <label for="author">Author</label>
-                        <input type="text" id="author" name="author">
-                    </div>
-                    <div class="pages_form-container">
-                        <label for="pages">Pages</label>
-                        <input type="number" id="pages" name="pages">
-                    </div>
-                    <div class="read-state_form_container">
-                        <label for="read-state">Read</label>
-                        <input type="checkbox" id="read-state" name="read-state" value="true">
-                    </div>
-                    <button class="add-book" type="submit">Add book</button>
-                </fieldset>
-            </form>
+            <dialog>
+                <form action="">
+                    <header class="form-header">
+                        <h2>Add a book</h2>
+                        <button class="close-button">X</button>
+                    </header>
+                    <fieldset>
+                        <legend>Book details</legend>
+                        <div class="title_form-container">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" name="title">
+                        </div>
+                        <div class="author_form-container">
+                            <label for="author">Author</label>
+                            <input type="text" id="author" name="author">
+                        </div>
+                        <div class="pages_form-container">
+                            <label for="pages">Pages</label>
+                            <input type="number" id="pages" name="pages">
+                        </div>
+                        <div class="read-state_form_container">
+                            <label for="read-state">Read</label>
+                            <input type="checkbox" id="read-state" name="read-state" value="true">
+                        </div>
+                        <button class="add-book" type="submit">Add book</button>
+                    </fieldset>
+                </form>
+            </dialog>
         </main>
     </header>
 
