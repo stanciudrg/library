@@ -15,44 +15,41 @@ const closeForm = document.querySelector('.close-button').addEventListener('clic
 function Book(title, author, pages, readState) {
 
     this.title = title ? title : "No title"
-    this.author = author ? author : "No author"
-    this.pages = pages ? Number(pages) : "No";
-    this.readState = readState ? true : false;
-
-    this.bookElement = document.createElement('div');
-    this.bookElement.classList.add('book');
-    this.bookElement.dataset.count = libraryArray.length;
-
     this.titleElement = document.createElement('h3');
     this.titleElement.classList.add('title');
     this.titleElement.textContent = this.title;
-    this.bookElement.appendChild(this.titleElement);
 
+    this.author = author ? author : "No author"
     this.authorElement = document.createElement('div');
     this.authorElement.classList.add('author');
     this.authorElement.textContent = `By: ${this.author}`;
-    this.bookElement.appendChild(this.authorElement);
 
+    this.pages = pages ? Number(pages) : "No";
     this.pagesElement = document.createElement('div');
     this.pagesElement.classList.add('pages');
     this.pagesElement.textContent = `${this.pages} pages`;
-    this.bookElement.appendChild(this.pagesElement);
 
-    this.readStateElement = document.createElement('div');
-    this.readStateElement.classList.add('read-state');
-    this.readStateElement.textContent = this.readState ? "Read" : "Not read yet";
-    this.bookElement.appendChild(this.readStateElement);
-
-    this.readStateToggler = document.createElement('input');
+    this.readState = readState ? true : false;
+    this.readStateToggler = document.createElement('button');
     this.readStateToggler.classList.add('read-state_toggler');
-    this.readStateToggler.setAttribute("type", "checkbox");
-    this.readState ? this.readStateToggler.checked = true : this.readStateToggler.checked = false;
-    this.bookElement.appendChild(this.readStateToggler);
+    this.readState ? this.readStateToggler.textContent = "Read" : this.readStateToggler.textContent = "Not read yet";
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.classList.add('delete-button');
     this.deleteButton.textContent = "Remove book";
-    this.bookElement.appendChild(this.deleteButton);
+
+    this.actionsContainer = document.createElement('div');
+    this.actionsContainer.classList.add('book-actions');
+
+    this.bookElement = document.createElement('div');
+    this.bookElement.classList.add('book');
+    this.bookElement.dataset.count = libraryArray.length;
+    this.bookElement.appendChild(this.titleElement);
+    this.bookElement.appendChild(this.authorElement);
+    this.bookElement.appendChild(this.pagesElement);
+    this.bookElement.appendChild(this.actionsContainer);
+    this.actionsContainer.appendChild(this.readStateToggler);
+    this.actionsContainer.appendChild(this.deleteButton);
 
     document.querySelector('#books-container').appendChild(this.bookElement);
 
@@ -61,13 +58,13 @@ function Book(title, author, pages, readState) {
 Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
-    this.readStateElement.textContent = this.readState ? "Read" : "Not read yet";
+    this.readStateToggler.textContent = this.readState ? "Read" : "Not read yet";
 
 }
 
 Book.prototype.removeBook = function () {
 
-    this.bookElement.remove();
+    this.bookElement.remove()
     libraryArray.splice(this.bookElement.dataset.count, 1);
 
     libraryArray.forEach((object) => {
@@ -93,12 +90,12 @@ function bookActions(e) {
 
     if (e.target.classList.contains('read-state_toggler')) {
 
-        const elementIndex = e.target.parentElement.dataset.count;
+        const elementIndex = e.target.parentElement.parentElement.dataset.count;
         libraryArray[elementIndex].toggleReadState(e);
 
     } else if (e.target.classList.contains('delete-button')) {
 
-        const elementIndex = e.target.parentElement.dataset.count;
+        const elementIndex = e.target.parentElement.parentElement.dataset.count;
         libraryArray[elementIndex].removeBook();
 
     }
