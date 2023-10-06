@@ -51,6 +51,7 @@ button {
     background-color: gray;
     padding: 1rem;
     border-radius: 0.5rem;
+    transition: 0.1s;
 }
 
 .book h3 {

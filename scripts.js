@@ -64,7 +64,9 @@ Book.prototype.toggleReadState = function () {
 
 Book.prototype.removeBook = function () {
 
-    this.bookElement.remove()
+    this.bookElement.style.opacity = "0";
+    const removeElement = () => this.bookElement.remove();
+    setTimeout(removeElement, 300);
     libraryArray.splice(this.bookElement.dataset.count, 1);
 
     libraryArray.forEach((object) => {
