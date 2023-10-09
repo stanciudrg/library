@@ -59,7 +59,6 @@ Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
     this.readStateToggler.textContent = this.readState ? "Read" : "Not read yet";
-
 }
 
 Book.prototype.removeBook = function () {
