@@ -32,24 +32,23 @@ function Book(title, author, pages, readState) {
     this.readState = readState ? true : false;
     this.readStateToggler = document.createElement('button');
     this.readStateToggler.classList.add('read-state_toggler');
-    this.readState ? this.readStateToggler.textContent = "Read" : this.readStateToggler.textContent = "Not read yet";
+    this.readState ? this.readStateToggler.textContent = "READ" : this.readStateToggler.textContent = "Not read yet";
+    this.readState ? this.readStateToggler.classList.add('read') : this.readStateToggler.classList.remove('read');
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.classList.add('delete-button');
-    this.deleteButton.textContent = "Remove book";
-
-    this.actionsContainer = document.createElement('div');
-    this.actionsContainer.classList.add('book-actions');
+    this.deleteIcon = document.querySelector('#delete-icon').cloneNode(true);
+    this.deleteIcon.style.display = "block";
+    this.deleteButton.appendChild(this.deleteIcon);
 
     this.bookElement = document.createElement('div');
     this.bookElement.classList.add('book');
     this.bookElement.dataset.count = libraryArray.length;
     this.bookElement.appendChild(this.titleElement);
+    this.bookElement.appendChild(this.deleteButton);
     this.bookElement.appendChild(this.authorElement);
     this.bookElement.appendChild(this.pagesElement);
-    this.bookElement.appendChild(this.actionsContainer);
-    this.actionsContainer.appendChild(this.readStateToggler);
-    this.actionsContainer.appendChild(this.deleteButton);
+    this.bookElement.appendChild(this.readStateToggler);
 
     document.querySelector('#books-container').appendChild(this.bookElement);
 
@@ -59,6 +58,7 @@ Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
     this.readStateToggler.textContent = this.readState ? "Read" : "Not read yet";
+
 }
 
 Book.prototype.removeBook = function () {
@@ -73,6 +73,7 @@ Book.prototype.removeBook = function () {
     })
 
 }
+
 
 function addBookToLibrary(e) {
 
@@ -91,12 +92,12 @@ function bookActions(e) {
 
     if (e.target.classList.contains('read-state_toggler')) {
 
-        const elementIndex = e.target.parentElement.parentElement.dataset.count;
+        const elementIndex = e.target.parentElement.dataset.count;
         libraryArray[elementIndex].toggleReadState(e);
 
     } else if (e.target.classList.contains('delete-button')) {
 
-        const elementIndex = e.target.parentElement.parentElement.dataset.count;
+        const elementIndex = e.target.parentElement.dataset.count;
         libraryArray[elementIndex].removeBook();
 
     }

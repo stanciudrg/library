@@ -91,32 +91,52 @@ main>button:hover svg {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
-    grid-gap: 1rem;
+    column-gap: 1.5rem;
+    row-gap: 2rem;
 }
 
 .book {
     display: grid;
-    grid-gap: 1rem;
-    background-color: gray;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    grid-template-columns: auto min-content;
+    gap: 1rem;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    border: 3px solid var(--font-color);
     transition: 0.1s;
 }
 
 .book h3 {
+    grid-column: 1 / 2;
+    padding: 1rem 1rem 0rem 1rem;
     margin: 0;
 }
 
-.book-actions {
-    display: grid;
-    grid-gap: 0.5rem;
-    margin-top: 2rem;
+.book .delete-button {
+    grid-column: 2 / 3;
+    background-color: transparent;
+    fill: var(--background-color);
+    padding: 1rem 1rem 0rem 0rem;
 }
 
-.book button {
-    padding: 1rem 0.5rem;
-    box-shadow: none;
-    border-radius: 0.4rem;
+.book .delete-button:hover {
+    fill: #c42a2d;
+}
+
+#delete-icon {
+    display: none;
+    width: 25px;
+    height: 25px;
+    pointer-events: none;
+}
+
+.book .author,
+.book .pages {
+    padding: 0 1rem;
+    grid-column: 1 / 2;
+}
+
+.book .read-state_toggler {
+    grid-column: 1 / 3;
 }
 
 form {
