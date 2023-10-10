@@ -14,10 +14,17 @@ body {
 
 button {
     appearance: none;
+    background-color: var(--font-color);
+    color: var(--background-color);
+    fill: var(--background-color);
     border: 0;
     outline: 0;
     padding: 1rem 2rem;
     cursor: pointer;
+}
+
+button:hover {
+    background-color: #e8e9e9e8;
 }
 
 header {
@@ -51,19 +58,16 @@ main>button {
     justify-self: center;
     display: grid;
     grid-template-columns: 1fr 3fr;
-    background-color: transparent;
-    color: var(--font-color);
-    border: 3px solid var(--font-color);
     padding: 0;
 }
 
 main>button span {
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     line-height: 0;
-    border-left: 3px solid var(--font-color);
+    border-left: 3px solid var(--background-color);
 }
 
 main>button svg {
@@ -72,15 +76,6 @@ main>button svg {
     height: 100%;
     padding: 5px 0;
     transition: 0.3s;
-}
-
-main>button:hover {
-    background-color: var(--font-color);
-    color: var(--background-color);
-}
-
-main>button:hover span {
-    border-color: var(--background-color);
 }
 
 main>button:hover svg {
@@ -98,10 +93,10 @@ main>button:hover svg {
 .book {
     display: grid;
     grid-template-columns: auto min-content;
-    gap: 1rem;
     background-color: var(--font-color);
     color: var(--background-color);
     border: 3px solid var(--font-color);
+    gap: 1rem;
     transition: 0.1s;
 }
 
@@ -113,19 +108,18 @@ main>button:hover svg {
 
 .book .delete-button {
     grid-column: 2 / 3;
-    background-color: transparent;
-    fill: var(--background-color);
-    padding: 1rem 1rem 0rem 0rem;
+    padding: 1rem;
 }
 
 .book .delete-button:hover {
-    fill: #c42a2d;
+    fill: #C70000;
+
 }
 
 #delete-icon {
     display: none;
-    width: 25px;
-    height: 25px;
+    width: 24px;
+    height: 24px;
     pointer-events: none;
 }
 
