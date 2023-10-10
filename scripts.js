@@ -19,20 +19,20 @@ function Book(title, author, publicationYear, pages, readState) {
     this.titleElement.classList.add('title');
     this.titleElement.textContent = this.title;
 
-    this.author = author ? author : "No author"
+    this.author = author;
     this.authorElement = document.createElement('div');
     this.authorElement.classList.add('author');
-    this.authorElement.textContent = `By: ${this.author}`;
+    this.author ? this.authorElement.textContent = `By: ${this.author}` : this.authorElement.textContent = "Unknown author";
 
     this.publicationYear = Number(publicationYear);
     this.publicationYearElement = document.createElement('div');
     this.publicationYearElement.classList.add('publication-year');
     this.publicationYear ? this.publicationYearElement.textContent = `Year of publication: ${this.publicationYear}` : this.publicationYearElement.textContent = "Unknown year of publication"
 
-    this.pages = pages ? Number(pages) : "No";
+    this.pages = Number(pages);
     this.pagesElement = document.createElement('div');
     this.pagesElement.classList.add('pages');
-    this.pagesElement.textContent = `${this.pages} pages`;
+    this.pages ? this.pagesElement.textContent = `${this.pages} pages` : this.pagesElement.textContent = "Unknown number of pages";
 
     this.readState = readState ? true : false;
     this.readStateToggler = document.createElement('button');
