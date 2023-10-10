@@ -130,6 +130,7 @@ main>button:hover svg {
 }
 
 .book .author,
+.book .publication-year,
 .book .pages {
     padding: 0 1rem;
     grid-column: 1 / 2;

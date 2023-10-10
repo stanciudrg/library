@@ -12,7 +12,7 @@ const closeForm = document.querySelector('.close-button').addEventListener('clic
 
 })
 
-function Book(title, author, pages, readState) {
+function Book(title, author, publicationYear, pages, readState) {
 
     this.title = title ? title : "No title"
     this.titleElement = document.createElement('h3');
@@ -24,6 +24,11 @@ function Book(title, author, pages, readState) {
     this.authorElement.classList.add('author');
     this.authorElement.textContent = `By: ${this.author}`;
 
+    this.publicationYear = Number(publicationYear);
+    this.publicationYearElement = document.createElement('div');
+    this.publicationYearElement.classList.add('publication-year');
+    this.publicationYear ? this.publicationYearElement.textContent = `Year of publication: ${this.publicationYear}` : this.publicationYearElement.textContent = "Unknown year of publication"
+
     this.pages = pages ? Number(pages) : "No";
     this.pagesElement = document.createElement('div');
     this.pagesElement.classList.add('pages');
@@ -32,7 +37,7 @@ function Book(title, author, pages, readState) {
     this.readState = readState ? true : false;
     this.readStateToggler = document.createElement('button');
     this.readStateToggler.classList.add('read-state_toggler');
-    this.readState ? this.readStateToggler.textContent = "READ" : this.readStateToggler.textContent = "Not read yet";
+    this.readState ? this.readStateToggler.textContent = "Read" : this.readStateToggler.textContent = "Not read yet";
     this.readState ? this.readStateToggler.classList.add('read') : this.readStateToggler.classList.remove('read');
 
     this.deleteButton = document.createElement('button');
@@ -47,6 +52,7 @@ function Book(title, author, pages, readState) {
     this.bookElement.appendChild(this.titleElement);
     this.bookElement.appendChild(this.deleteButton);
     this.bookElement.appendChild(this.authorElement);
+    this.bookElement.appendChild(this.publicationYearElement);
     this.bookElement.appendChild(this.pagesElement);
     this.bookElement.appendChild(this.readStateToggler);
 
@@ -81,7 +87,7 @@ function addBookToLibrary(e) {
     e.preventDefault();
 
     const formData = new FormData(document.querySelector("form"));
-    const bookObject = new Book(formData.get("title"), formData.get("author"), formData.get("pages"), formData.get("read-state"));
+    const bookObject = new Book(formData.get("title"), formData.get("author"), formData.get("publication-year"), formData.get("pages-number"), formData.get("read-state"));
 
     libraryArray.push(bookObject);
     document.querySelector('dialog').close();
