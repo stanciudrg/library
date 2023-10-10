@@ -26,7 +26,7 @@
         <dialog>
             <form action="">
                 <header class="form-header">
-                    <h2>Add a book</h2>
+                    <h2>Enter your book details</h2>
                     <button class="close-button">
                         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                             <path
@@ -38,19 +38,21 @@
                     <legend>Book details</legend>
                     <div class="title_form-container">
                         <label for="title">Title</label>
-                        <input type="text" id="title" name="title">
+                        <input type="text" id="title" name="title" placeholder="Title">
                     </div>
                     <div class="author_form-container">
                         <label for="author">Author</label>
-                        <input type="text" id="author" name="author">
+                        <input type="text" id="author" name="author" placeholder="Author">
                     </div>
                     <div class="publication-year_form_container">
                         <label for="publication-year">Year of publication</label>
-                        <input type="number" min="0" id="publication-year" name="publication-year">
+                        <input type="number" min="0" id="publication-year" name="publication-year"
+                            placeholder="Year of publication">
                     </div>
                     <div class="pages_form-container">
-                        <label for="pages-number">Pages</label>
-                        <input type="number" id="pages-number" name="pages-number">
+                        <label for="pages-number">Number of pages</label>
+                        <input type="number" min="0" id="pages-number" name="pages-number"
+                            placeholder="Number of pages">
                     </div>
                     <div class="read-state_form_container">
                         I have read the book

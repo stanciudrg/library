@@ -166,6 +166,22 @@ form header button {
     padding: 0;
 }
 
+/* Hide fieldset legend and label names for sighted users but allow the elements to still be recognized by screen readers */
+
+form fieldset>legend {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+
+form fieldset div>label {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+
+/* --------------- */
+
 form fieldset {
     display: grid;
     gap: 1rem;
