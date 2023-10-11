@@ -139,15 +139,65 @@ main>button:hover svg {
 
 .book .read-state_toggler {
     grid-column: 1 / 3;
-    background-image: linear-gradient(to right, #222020, #3d2626, #572a2b, #712e2f, #8c3132, #8c3132, #8c3132, #8c3132, #712e2f, #572a2b, #3d2626, #222020);
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    font-weight: 600;
+    line-height: 0;
+    background-color: var(--background-color);
     color: var(--font-color);
-    padding: 1.5rem 0;
+    gap: 1.5rem;
+    padding: 0.7rem 0.7rem;
     margin-top: 2rem;
 }
 
-.book .read {
-    background-image: linear-gradient(to right, #202220, #222f23, #223b25, #204928, #1a562b, #1a562b, #1a562b, #1a562b, #204928, #223b25, #222f23, #202220);
+.read-state_toggler label {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 60px;
 }
+
+.read-state_toggler label input {
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+}
+
+.read-state_toggler label input:focus-visible {
+    outline: 3px solid rgb(64, 142, 252);
+}
+
+.read-state_toggler label span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #BABABA;
+}
+
+.read-state_toggler label span:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: var(--font-color);
+
+}
+
+.read-state_toggler input:checked+span {
+    background-color: var(--secondary-color);
+}
+
+.read-state_toggler input:checked+span:before {
+    transform: translateX(30px);
+}
+
+.book .read {}
 
 dialog {
     background-color: var(--secondary-color);

@@ -79,12 +79,24 @@ function Book(title, author, publicationYear, pages, readState) {
         this.pagesElement.appendChild(this.pagesText);
     }
 
+    this.readState = readState;
+    this.readStateElement = document.createElement('div');
+    this.readStateElement.classList.add('read-state_toggler');
+    this.readStateText = document.createElement('span');
+    this.readStateLabel = document.createElement('label');
+    this.readStateInput = document.createElement('input');
+    this.readStateInput.setAttribute('type', 'checkbox');
+    this.readStateInput.classList.add("read-state_input")
+    this.readStateToggler = document.createElement('span');
 
-    this.readState = readState ? true : false;
-    this.readStateToggler = document.createElement('button');
-    this.readStateToggler.classList.add('read-state_toggler');
-    this.readState ? this.readStateToggler.textContent = "Read" : this.readStateToggler.textContent = "Not read yet";
-    this.readState ? this.readStateToggler.classList.add('read') : this.readStateToggler.classList.remove('read');
+    this.readState ? this.bookElement.classList.add('read') : this.bookElement.classList.remove('read');
+    this.readState ? this.readStateText.textContent = "Mark as unread" : this.readStateText.textContent = "Mark as read";
+    this.readState ? this.readStateInput.checked = true : this.readStateInput.checked = false;
+
+    this.readStateLabel.appendChild(this.readStateInput);
+    this.readStateLabel.appendChild(this.readStateToggler);
+    this.readStateElement.appendChild(this.readStateText);
+    this.readStateElement.appendChild(this.readStateLabel);
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.classList.add('delete-button');
@@ -92,15 +104,12 @@ function Book(title, author, publicationYear, pages, readState) {
     this.deleteIcon.style.display = "block";
     this.deleteButton.appendChild(this.deleteIcon);
 
-    this.bookElement = document.createElement('div');
-    this.bookElement.classList.add('book');
-    this.bookElement.dataset.count = libraryArray.length;
     this.bookElement.appendChild(this.titleElement);
     this.bookElement.appendChild(this.deleteButton);
     this.bookElement.appendChild(this.authorElement);
     this.bookElement.appendChild(this.publicationYearElement);
     this.bookElement.appendChild(this.pagesElement);
-    this.bookElement.appendChild(this.readStateToggler);
+    this.bookElement.appendChild(this.readStateElement);
 
     document.querySelector('#books-container').appendChild(this.bookElement);
 
@@ -109,8 +118,8 @@ function Book(title, author, publicationYear, pages, readState) {
 Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
-    this.readStateToggler.textContent = this.readState ? "Read" : "Not read yet";
-    this.readStateToggler.classList.toggle('read')
+    this.readState ? this.readStateText.textContent = "Mark as unread" : this.readStateText.textContent = "Mark as read";
+    this.bookElement.classList.toggle('read')
 
 }
 
@@ -133,7 +142,7 @@ function addBookToLibrary(e) {
     e.preventDefault();
 
     const formData = new FormData(document.querySelector("form"));
-    const bookObject = new Book(formData.get("title"), formData.get("author"), formData.get("publication-year"), formData.get("pages-number"), formData.get("read-state"));
+    const bookObject = new Book(formData.get("title"), formData.get("author"), formData.get("publication-year"), formData.get("pages-number"), false);
 
     libraryArray.push(bookObject);
     document.querySelector('dialog').close();
@@ -143,9 +152,9 @@ function addBookToLibrary(e) {
 
 function bookActions(e) {
 
-    if (e.target.classList.contains('read-state_toggler')) {
+    if (e.target.classList.contains('read-state_input')) {
 
-        const elementIndex = e.target.parentElement.dataset.count;
+        const elementIndex = e.target.parentElement.parentElement.parentElement.dataset.count;
         libraryArray[elementIndex].toggleReadState(e);
 
     } else if (e.target.classList.contains('delete-button')) {
