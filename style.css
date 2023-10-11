@@ -102,6 +102,17 @@ main>button:hover svg {
     margin: 0;
 }
 
+.book .author,
+.book .publication-year,
+.book .pages {
+    display: flex;
+    gap: 5px;
+}
+
+.book .pages {
+    gap: 4px;
+}
+
 .book .delete-button {
     grid-column: 2 / 3;
     padding: 1rem;

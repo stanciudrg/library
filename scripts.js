@@ -14,6 +14,10 @@ const closeForm = document.querySelector('.close-button').addEventListener('clic
 
 function Book(title, author, publicationYear, pages, readState) {
 
+    this.bookElement = document.createElement('div');
+    this.bookElement.classList.add('book');
+    this.bookElement.dataset.count = libraryArray.length;
+
     this.title = title ? title : "No title"
     this.titleElement = document.createElement('h3');
     this.titleElement.classList.add('title');
@@ -22,17 +26,59 @@ function Book(title, author, publicationYear, pages, readState) {
     this.author = author;
     this.authorElement = document.createElement('div');
     this.authorElement.classList.add('author');
-    this.author ? this.authorElement.textContent = `By: ${this.author}` : this.authorElement.textContent = "Unknown author";
+
+    if (!this.author) {
+        this.authorElement.textContent = "Unknown author";
+    } else {
+        this.authorText = document.createElement('span');
+        this.authorText.textContent = 'By:';
+        this.authorText.style.fontWeight = '600';
+        this.authorValue = document.createElement('span');
+        this.authorValue.textContent = this.author;
+        this.authorElement.appendChild(this.authorText);
+        this.authorElement.appendChild(this.authorValue);
+    }
 
     this.publicationYear = Number(publicationYear);
     this.publicationYearElement = document.createElement('div');
     this.publicationYearElement.classList.add('publication-year');
-    this.publicationYear ? this.publicationYearElement.textContent = `Year of publication: ${this.publicationYear}` : this.publicationYearElement.textContent = "Unknown year of publication"
+    this.publicationYearText = document.createElement('span');
+    this.publicationYearText.textContent = 'Year of publication: ';
+    this.publicationYearValue = document.createElement('span');
+    this.publicationYearValue.textContent = publicationYear;
+
+    if (!this.publicationYear) {
+        this.publicationYearElement.textContent = "Unknown year of publication"
+    } else {
+        this.publicationYearText = document.createElement('span');
+        this.publicationYearText.textContent = 'Year of publication:';
+        this.publicationYearText.style.fontWeight = '600';
+        this.publicationYearValue = document.createElement('span');
+        this.publicationYearValue.textContent = publicationYear;
+        this.publicationYearElement.appendChild(this.publicationYearText);
+        this.publicationYearElement.appendChild(this.publicationYearValue);
+    }
 
     this.pages = Number(pages);
     this.pagesElement = document.createElement('div');
     this.pagesElement.classList.add('pages');
-    this.pages ? this.pagesElement.textContent = `${this.pages} pages` : this.pagesElement.textContent = "Unknown number of pages";
+    this.pagesValue = document.createElement('span');
+    this.pagesValue.textContent = this.pages;
+    this.pagesText = document.createElement('span');
+    this.pagesText.textContent = 'pages';
+
+    if (!this.pages) {
+        this.pagesElement.textContent = "Unknown number of pages";
+    } else {
+        this.pagesValue = document.createElement('span');
+        this.pagesValue.textContent = this.pages;
+        this.pagesValue.style.fontWeight = '600';
+        this.pagesText = document.createElement('span');
+        this.pagesText.textContent = 'pages';
+        this.pagesElement.appendChild(this.pagesValue);
+        this.pagesElement.appendChild(this.pagesText);
+    }
+
 
     this.readState = readState ? true : false;
     this.readStateToggler = document.createElement('button');
