@@ -325,12 +325,6 @@ form fieldset>legend {
     overflow: hidden;
 }
 
-form fieldset div>label {
-    position: absolute;
-    left: -9999px;
-    overflow: hidden;
-}
-
 /* --------------- */
 
 form fieldset {
