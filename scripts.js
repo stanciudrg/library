@@ -83,6 +83,7 @@ function Book(title, author, publicationYear, pages, readState) {
     this.readStateElement = document.createElement('div');
     this.readStateElement.classList.add('read-state_toggler');
     this.readStateText = document.createElement('span');
+    this.readStateText.textContent = "Mark as read"
     this.readStateLabel = document.createElement('label');
     this.readStateInput = document.createElement('input');
     this.readStateInput.setAttribute('type', 'checkbox');
@@ -90,7 +91,6 @@ function Book(title, author, publicationYear, pages, readState) {
     this.readStateToggler = document.createElement('span');
 
     this.readState ? this.bookElement.classList.add('read') : this.bookElement.classList.remove('read');
-    this.readState ? this.readStateText.textContent = "Mark as unread" : this.readStateText.textContent = "Mark as read";
     this.readState ? this.readStateInput.checked = true : this.readStateInput.checked = false;
 
     this.readStateLabel.appendChild(this.readStateInput);
@@ -118,7 +118,6 @@ function Book(title, author, publicationYear, pages, readState) {
 Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
-    this.readState ? this.readStateText.textContent = "Mark as unread" : this.readStateText.textContent = "Mark as read";
     this.bookElement.classList.toggle('read')
 
 }
