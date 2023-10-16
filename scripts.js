@@ -133,7 +133,7 @@ function Book(title, author, publicationYear, pages, readState) {
 Book.prototype.toggleReadState = function () {
 
     this.readState == false ? this.readState = true : this.readState = false;
-    this.bookElement.classList.toggle('read')
+    this.bookElement.classList.toggle('read');
 
 }
 

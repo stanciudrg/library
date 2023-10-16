@@ -14,7 +14,7 @@ body {
 
 button {
     appearance: none;
-    font-weight: 600;
+    font-weight: bold;
     background-color: var(--secondary-color);
     color: var(--background-color);
     fill: var(--background-color);
@@ -35,16 +35,42 @@ button:focus-visible {
 }
 
 header {
-    background-image: linear-gradient(to right, #d8cfd0, #cec5c5, #c5baba, #bbb0af, #b1a6a4);
-    color: var(--background-color);
+    background-color: var(--secondary-color);
 }
 
-h1 {
+header div {
+    overflow: hidden;
     max-width: 1300px;
     display: grid;
+    grid-template-columns: repeat(3, auto);
     justify-content: start;
-    padding: 2rem;
-    margin: auto;
+    align-items: center;
+    color: var(--background-color);
+    margin: 0 auto;
+}
+
+body>header div h1 {
+    padding: 1rem;
+}
+
+body>header svg {
+    height: 100px;
+    width: 150px;
+    fill: var(--background-color);
+}
+
+body>header .first-svg {
+    position: absolute;
+    top: -75px;
+    transform: rotate(180deg);
+}
+
+body>header .second-svg {
+    transform: translate(-53%, 65%);
+}
+
+body>header .third-svg {
+    transform: translate(-53%, 30%);
 }
 
 main {
@@ -115,8 +141,8 @@ main>button:hover svg {
 
 .book h3 {
     grid-column: 1 / 2;
-    word-break: break-word;
     overflow: hidden;
+    word-break: break-word;
     padding: 1.2rem 1.2rem 0rem 1.2rem;
     margin: 0;
 }
@@ -131,8 +157,8 @@ main>button:hover svg {
 }
 
 .book .author span:last-of-type {
-    word-break: break-word;
     overflow: hidden;
+    word-break: break-word;
 }
 
 .book .pages {
@@ -144,6 +170,7 @@ main>button:hover svg {
     justify-self: end;
     grid-column: 2 / 3;
     background-color: transparent;
+    fill: var(--background-color);
     padding: 1rem;
 }
 
@@ -229,14 +256,18 @@ main>button:hover svg {
 .read {
     background-image: linear-gradient(to right bottom, #494f5d, #515767, #596070, #61687a, #697184);
     color: var(--font-color);
-    fill: var(--font-color);
 }
 
 .read .delete-button {
     fill: var(--font-color);
 }
 
-.read .delete-button:hover,
+@media (hover: hover) {
+    .read .delete-button:hover {
+        fill: var(--secondary-color);
+    }
+}
+
 .read .delete-button:focus-visible {
     fill: var(--secondary-color);
 }
@@ -264,7 +295,7 @@ form header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-image: none;
+    background-color: transparent;
 }
 
 form header h2 {
