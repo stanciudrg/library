@@ -2,6 +2,21 @@ const libraryArray = [];
 const submitButton = document.querySelector(".add-book").addEventListener('click', addBookToLibrary);
 const booksContainer = document.querySelector('#books-container').addEventListener('click', bookActions);
 
+const numberInputs = document.querySelectorAll('input[type="number"]').forEach((numberInput) => {
+
+    let valueBeforeInput = numberInput.value;
+
+    numberInput.addEventListener('input', (e) => {
+
+        if (numberInput.value.length > numberInput.maxLength) { numberInput.value = valueBeforeInput }
+
+        valueBeforeInput = numberInput.value;
+
+    })
+
+
+})
+
 const showForm = document.querySelector('.new-book').addEventListener('click', (e) => document.querySelector('dialog').showModal());
 
 const closeForm = document.querySelector('.close-button').addEventListener('click', (e) => {
@@ -18,7 +33,7 @@ function Book(title, author, publicationYear, pages, readState) {
     this.bookElement.classList.add('book');
     this.bookElement.dataset.count = libraryArray.length;
 
-    this.title = title ? title : "No title"
+    this.title = title ? title : "No title";
     this.titleElement = document.createElement('h3');
     this.titleElement.classList.add('title');
     this.titleElement.textContent = this.title;
@@ -32,7 +47,7 @@ function Book(title, author, publicationYear, pages, readState) {
     } else {
         this.authorText = document.createElement('span');
         this.authorText.textContent = 'By:';
-        this.authorText.style.fontWeight = '600';
+        this.authorText.style.fontWeight = 'bold';
         this.authorValue = document.createElement('span');
         this.authorValue.textContent = this.author;
         this.authorElement.appendChild(this.authorText);
@@ -52,7 +67,7 @@ function Book(title, author, publicationYear, pages, readState) {
     } else {
         this.publicationYearText = document.createElement('span');
         this.publicationYearText.textContent = 'Year of publication:';
-        this.publicationYearText.style.fontWeight = '600';
+        this.publicationYearText.style.fontWeight = 'bold';
         this.publicationYearValue = document.createElement('span');
         this.publicationYearValue.textContent = publicationYear;
         this.publicationYearElement.appendChild(this.publicationYearText);
@@ -72,7 +87,7 @@ function Book(title, author, publicationYear, pages, readState) {
     } else {
         this.pagesValue = document.createElement('span');
         this.pagesValue.textContent = this.pages;
-        this.pagesValue.style.fontWeight = '600';
+        this.pagesValue.style.fontWeight = 'bold';
         this.pagesText = document.createElement('span');
         this.pagesText.textContent = 'pages';
         this.pagesElement.appendChild(this.pagesValue);
@@ -135,7 +150,6 @@ Book.prototype.removeBook = function () {
 
 }
 
-
 function addBookToLibrary(e) {
 
     e.preventDefault();
@@ -164,3 +178,4 @@ function bookActions(e) {
     }
 
 }
+
