@@ -68,11 +68,13 @@
                     </div>
                     <div class="publication-year_form_container">
                         <label for="publication-year">Year of publication</label>
-                        <input type="number" min="0" id="publication-year" name="publication-year" maxlength="4">
+                        <input onkeypress="return /[0-9]/i.test(event.key)" type="number" min="0" max="9999"
+                            id="publication-year" name="publication-year" maxlength="4">
                     </div>
-                    <div class="pages_form-container">
+                    <div class=" pages_form-container">
                         <label for="pages-number">Number of pages</label>
-                        <input type="number" min="0" id="pages-number" name="pages-number" maxlength="6">
+                        <input onkeypress="return /[0-9]/i.test(event.key)" type="number" min="0" max="999999"
+                            id="pages-number" name="pages-number" maxlength="6">
                     </div>
                     <button class="add-book">Add book</button>
                 </fieldset>
