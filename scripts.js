@@ -12,7 +12,10 @@ const booksContainer = document.querySelector('#books-container').addEventListen
 
 // Show the dialog containing the form upon clicking the "New book" button
 
-const showForm = document.querySelector('.new-book').addEventListener('click', (e) => document.querySelector('dialog').showModal());
+const showForm = document.querySelector('.new-book').addEventListener('click', (e) => {
+    e.target.parentElement.blur();
+    document.querySelector('dialog').showModal()
+});
 
 // Close the dialog containing the form and reset the form upon clicking the "X" button 
 
