@@ -14,7 +14,6 @@ const numberInputs = document.querySelectorAll('input[type="number"]').forEach((
 
     })
 
-
 })
 
 const showForm = document.querySelector('.new-book').addEventListener('click', (e) => document.querySelector('dialog').showModal());
@@ -69,7 +68,7 @@ function Book(title, author, publicationYear, pages, readState) {
         this.publicationYearText.textContent = 'Year of publication:';
         this.publicationYearText.style.fontWeight = 'bold';
         this.publicationYearValue = document.createElement('span');
-        this.publicationYearValue.textContent = this.publicationYear;
+        this.publicationYearValue.textContent = publicationYear;
         this.publicationYearElement.appendChild(this.publicationYearText);
         this.publicationYearElement.appendChild(this.publicationYearValue);
     }
