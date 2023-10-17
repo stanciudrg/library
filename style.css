@@ -98,7 +98,8 @@ button:hover {
     fill: var(--font-color);
 }
 
-button:focus-visible {
+button:focus-visible,
+button[type="button"]:focus-visible {
     outline: 3px solid rgb(64, 142, 252);
 }
 

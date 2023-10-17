@@ -101,6 +101,7 @@ function Book(title, author, publicationYear, pages, readState) {
     this.readStateLabel = document.createElement('label');
     this.readStateInput = document.createElement('input');
     this.readStateInput.setAttribute('type', 'checkbox');
+    this.readStateInput.setAttribute('aria-label', 'Mark as read');
     this.readStateInput.classList.add("read-state_input")
     this.readStateToggler = document.createElement('span');
 
@@ -114,6 +115,7 @@ function Book(title, author, publicationYear, pages, readState) {
 
     this.deleteButton = document.createElement('button');
     this.deleteButton.classList.add('delete-button');
+    this.deleteButton.setAttribute('aria-label', 'Delete book');
     this.deleteIcon = document.querySelector('#delete-icon').cloneNode(true);
     this.deleteIcon.style.display = "block";
     this.deleteButton.appendChild(this.deleteIcon);

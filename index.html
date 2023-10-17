@@ -23,7 +23,7 @@
         <h1>Library</h1>
     </header>
     <main>
-        <button class="new-book">
+        <button class="new-book" aria-label="Add new book" tabindex="0">
             <svg xmlns="http://www.w3.org/2000/svg" class="ornamental-svg" viewBox="0 0 512 512"
                 preserveAspectRatio="none">
                 <path
@@ -46,11 +46,11 @@
             </svg>
             <span>New book</span>
         </button>
-        <dialog>
-            <form action="">
+        <dialog id="favDialog">
+            <form method="dialog" action="">
                 <header class="form-header">
                     <h2>Enter your book details</h2>
-                    <button class="close-button">
+                    <button class="close-button" aria-label="Close" type="button" tabindex="0">
                         <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
                             <path
                                 d="M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z" />
@@ -77,7 +77,7 @@
                         <input onkeypress="return /[0-9]/i.test(event.key)" type="number" min="0" max="999999"
                             id="pages-number" name="pages-number" maxlength="6">
                     </div>
-                    <button class="add-book">Add book</button>
+                    <button class="add-book" aria-label="Add book" type="button">Add book</button>
                 </fieldset>
             </form>
         </dialog>
