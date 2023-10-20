@@ -126,7 +126,7 @@ main {
     max-width: 1300px;
     display: grid;
     gap: 2rem;
-    padding: 3.5rem 0.5rem;
+    padding: 2rem 0.5rem;
     margin: auto;
 }
 
@@ -140,31 +140,9 @@ main>button {
     display: grid;
     grid-template-columns: 2fr 4fr;
     border: 0.3px solid rgba(0, 0, 0, 0.2);
-    border-top: 0;
-    border-radius: 0 0 0.3rem 0.3rem;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 0.3rem 0.3rem;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.15);
     padding: 0;
-}
-
-/* "Ornamental" svg's absolutely positioned around the button */
-
-main>button .ornamental-svg {
-    z-index: -1;
-    position: absolute;
-    height: 100px;
-}
-
-main>button .ornamental-svg:nth-child(1) {
-    width: 101.6px;
-    top: -40px;
-    left: -3.3px;
-}
-
-main>button .ornamental-svg:nth-child(2) {
-    width: 100px;
-    top: -40px;
-    left: 102.7px;
-    transform: scaleX(-1);
 }
 
 /* "+" svg icon positioned within the Add book button */
@@ -186,7 +164,7 @@ main>button span {
     align-items: center;
     line-height: 0;
     font-size: 1.1rem;
-    border-left: 4.8px solid var(--background-color);
+    border-left: 3px solid var(--background-color);
 }
 
 /* Add book button hover effects */
