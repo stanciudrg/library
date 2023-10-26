@@ -13,8 +13,17 @@ const booksContainer = document.querySelector('#books-container').addEventListen
 // Show the dialog containing the form upon clicking the "New book" button
 
 const showForm = document.querySelector('.new-book').addEventListener('click', (e) => {
-    e.target.parentElement.blur();
-    document.querySelector('dialog').showModal()
+
+    document.querySelector('.add-icon').style.transform = "rotate(90deg)"
+
+    setTimeout(() => {
+
+        document.querySelector('dialog').showModal();
+        document.querySelector('.add-icon').style.transform = "rotate(0)";
+
+    }, 500);
+
+
 });
 
 // Close the dialog containing the form and reset the form upon clicking the "X" button 
@@ -23,6 +32,7 @@ const closeForm = document.querySelector('.close-button').addEventListener('clic
 
     document.querySelector('dialog').close();
     document.querySelector('form').reset();
+    document.querySelector('.new-book').blur();
 
 })
 
@@ -217,6 +227,7 @@ function addBookToLibrary(e) {
 
     libraryArray.push(bookObject);
     document.querySelector('dialog').close();
+    document.querySelector('.new-book').blur();
     document.querySelector('form').reset();
 
 }

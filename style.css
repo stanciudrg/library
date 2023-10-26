@@ -98,11 +98,15 @@ button:hover {
     fill: var(--font-color);
 }
 
-/* Replaces focus outline effect for all buttons */
+/* Replaces focus outline effect for all buttons on desktop devices */
 
-button:focus-visible,
-button[type="button"]:focus-visible {
-    outline: 3px solid rgb(64, 142, 252);
+@media (hover: hover) {
+
+    button:focus-visible,
+    button[type="button"]:focus-visible {
+        outline: 3px solid rgb(64, 142, 252);
+    }
+
 }
 
 /* Header section */
@@ -153,6 +157,7 @@ main>button .add-icon {
     width: 100%;
     padding: 5px 0;
     transition: 0.3s transform;
+    will-change: transform;
 }
 
 /* The "Add book" text positioned within the Add book button */
@@ -171,14 +176,6 @@ main>button span {
 
 main>button:hover {
     background-image: linear-gradient(to bottom, #383e4c, #444a59, #505767, #5c6476, #697184);
-}
-
-main>button:hover .ornamental-svg {
-    fill: var(--background-color)
-}
-
-main>button:hover .add-icon {
-    transform: rotate(90deg);
 }
 
 main>button:hover span {
