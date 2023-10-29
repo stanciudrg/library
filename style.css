@@ -69,9 +69,8 @@
 * {
     box-sizing: border-box;
     --background-color: #383E4C;
-    --font-color: #F2F1EF;
-    --primary-color: #B1A6A4;
-    --secondary-color: #D8CFD0;
+    --font-color: #eff0f2;
+    --secondary-color: #cfd2d8;
     --accent-color: #697184;
 }
 
@@ -121,7 +120,7 @@ body>header h1 {
     align-items: center;
     color: var(--background-color);
     margin: 0 auto;
-    padding: 2rem 1rem;
+    padding: 2rem 2rem;
 }
 
 /* Main section */
@@ -130,7 +129,7 @@ main {
     max-width: 1300px;
     display: grid;
     gap: 2rem;
-    padding: 2rem 0.5rem;
+    padding: 2rem 1rem;
     margin: auto;
 }
 
@@ -450,14 +449,23 @@ form fieldset button {
 
 /* Media queries for mobile devices */
 
-@media (max-width: 500px) {
+@media (max-width: 1200px) {
 
     main {
         padding-bottom: 1rem;
     }
 
     #books-container {
-        row-gap: 1rem;
+        gap: 1rem;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    main {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
     }
 
     dialog {
