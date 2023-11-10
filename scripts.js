@@ -1,5 +1,17 @@
 class Library {
 
+    #initialized;
+
+    init() {
+
+        if (this.#initialized) { throw new TypeError("Library already initialized") }
+
+        console.log("Welcome! Type 'library' and press enter to see what's inside.");
+        this.#initialized = true;
+        this.#bindEvents();
+
+    }
+
     #books = [];
 
     #submitBookButton = document.querySelector(".add-book");
