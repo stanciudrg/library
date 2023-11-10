@@ -111,6 +111,13 @@ class Book {
 
     };
 
+    #renderTitle() {
+
+        const titleElement = document.createElement('h3');
+        this.#create(titleElement, 'title', this.#title, this.#container);
+
+    }
+
 }
 
 const library = new Library;
