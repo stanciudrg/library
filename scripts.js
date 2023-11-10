@@ -118,6 +118,22 @@ class Book {
 
     }
 
+    #renderAuthor() {
+
+        const authorElement = document.createElement('div');
+
+        if (this.#author == "Unknown author") { return this.#create(authorElement, 'author', this.#author, this.#container); }
+
+        this.#create(authorElement, 'author', '', this.#container);
+
+        const authorText = document.createElement('span');
+        this.#create(authorText, 'author-text', 'By:', authorElement);
+
+        const authorValue = document.createElement('span');
+        this.#create(authorValue, '', this.#author, authorElement);
+
+    }
+
 }
 
 const library = new Library;
