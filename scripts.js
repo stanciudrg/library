@@ -107,10 +107,19 @@ class Book {
 
     }
 
+    get container() { return this.#container; }
+
     render() {
 
         this.#container.dataset.count = library.booksContainer.children.length;
         this.#create(this.#container, 'book', '', library.booksContainer);
+
+        this.#renderTitle();
+        this.#renderDeleteButton();
+        this.#renderAuthor();
+        this.#renderPublicationYear();
+        this.#renderPages();
+        this.#renderReadState();
 
     }
 
