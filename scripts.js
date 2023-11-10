@@ -134,6 +134,22 @@ class Book {
 
     }
 
+    #renderPublicationYear() {
+
+        const publicationYearElement = document.createElement('div');
+
+        if (this.#publicationYear == "Unknown year of publication") { return this.#create(publicationYearElement, 'publication-year', this.#publicationYear, this.#container); }
+
+        this.#create(publicationYearElement, 'publication-year', '', this.#container);
+
+        const publicationYearText = document.createElement('span');
+        this.#create(publicationYearText, 'publication-year_text', 'Year of publication: ', publicationYearElement);
+
+        const publicationYearValue = document.createElement('span');
+        this.#create(publicationYearValue, '', this.#publicationYear, publicationYearElement);
+
+    }
+
 }
 
 const library = new Library;
