@@ -96,4 +96,12 @@ class Book {
 
     }
 
+    #create(element, elementClass, elementTextContent, elementParent) {
+
+        if (elementClass !== '') { element.classList.add(elementClass); }
+        if (elementTextContent !== '') { element.textContent = elementTextContent };
+        elementParent.appendChild(element);
+
+    };
+
 }
