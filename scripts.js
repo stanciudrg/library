@@ -25,7 +25,18 @@ class Library {
 
     }
 
-    #showForm() { }
+    #showForm() {
+
+        this.#newBookIcon.style.transform = "rotate(90deg)";
+
+        setTimeout(() => {
+
+            this.#dialog.showModal();
+            this.#newBookIcon.style.transform = "rotate(0)";
+
+        }, 500);
+
+    }
 
     #closeForm() { }
 
