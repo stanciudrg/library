@@ -38,6 +38,14 @@ class Library {
 
     }
 
+    #closeForm() {
+
+        this.#dialog.close();
+        this.#form.reset();
+        this.#newBookButton.blur();
+
+    }
+
     #closeForm() { }
 
     #limitInput() { }
