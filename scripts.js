@@ -46,6 +46,13 @@ class Library {
 
     }
 
+    #limitInput(e) {
+
+        if (e.target.value.length > e.target.maxLength) { e.target.value = this.valueBeforeInput };
+        this.valueBeforeInput = e.target.value;
+
+    }
+
     #closeForm() { }
 
     #limitInput() { }
