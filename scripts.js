@@ -10,4 +10,27 @@ class Library {
     #closeFormButton = document.querySelector('.close-button');
     #deleteIcon = document.querySelector('#delete-icon');
 
+    #bindEvents() {
+
+        this.#newBookButton.addEventListener('click', this.#showForm.bind(this));
+        this.#closeFormButton.addEventListener('click', this.#closeForm.bind(this));
+        this.#submitBookButton.addEventListener('click', this.#addToLibrary.bind(this));
+
+        this.#numberInputs.forEach((input) => {
+
+            let valueBeforeInput = input.value;
+            input.addEventListener('input', this.#limitInput);
+
+        })
+
+    }
+
+    #showForm() { }
+
+    #closeForm() { }
+
+    #limitInput() { }
+
+    #addToLibrary() { }
+
 }
