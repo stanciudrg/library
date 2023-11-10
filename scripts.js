@@ -1,5 +1,7 @@
 class Library {
 
+    #books = [];
+
     #submitBookButton = document.querySelector(".add-book");
     #booksContainer = document.querySelector('#books-container');
     #newBookButton = document.querySelector('.new-book');
@@ -52,10 +54,6 @@ class Library {
         this.valueBeforeInput = e.target.value;
 
     }
-
-    #closeForm() { }
-
-    #limitInput() { }
 
     #addToLibrary() { }
 
