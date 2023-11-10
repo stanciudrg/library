@@ -69,7 +69,7 @@
 * {
     box-sizing: border-box;
     --background-color: #383E4C;
-    --font-color: #fafafa;
+    --font-color: #eff0f2;
     --secondary-color: #cfd2d8;
     --accent-color: #697184;
 }
@@ -253,6 +253,12 @@ main>button:hover span {
     display: flex;
     gap: 5px;
     padding: 0 1.2rem;
+}
+
+.book .author .author-text,
+.book .publication-year .publication-year_text,
+.book .pages .pages-value {
+    font-weight: bold;
 }
 
 .book .author span:last-of-type {
