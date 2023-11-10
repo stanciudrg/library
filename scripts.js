@@ -20,7 +20,7 @@ class Library {
     #newBookIcon = document.querySelector('.add-icon');
     #dialog = document.querySelector('dialog');
     #form = document.querySelector('form');
-    #numberInputs = document.querySelectorAll('input[type="number"');
+    #numberInputs = document.querySelectorAll('input[type="number"]');
     #closeFormButton = document.querySelector('.close-button');
     #deleteIcon = document.querySelector('#delete-icon');
 
@@ -42,6 +42,13 @@ class Library {
 
     }
 
+    #limitInput(e) {
+
+        if (e.target.value.length > e.target.maxLength) { e.target.value = this.valueBeforeInput };
+        this.valueBeforeInput = e.target.value;
+
+    }
+
     #showForm() {
 
         this.#newBookIcon.style.transform = "rotate(90deg)";
@@ -60,13 +67,6 @@ class Library {
         this.#dialog.close();
         this.#form.reset();
         this.#newBookButton.blur();
-
-    }
-
-    #limitInput(e) {
-
-        if (e.target.value.length > e.target.maxLength) { e.target.value = this.valueBeforeInput };
-        this.valueBeforeInput = e.target.value;
 
     }
 
@@ -245,4 +245,5 @@ class Book {
 
 }
 
-const library = new Library;
+const library = new Library();
+library.init()
