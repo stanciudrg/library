@@ -150,6 +150,22 @@ class Book {
 
     }
 
+    #renderPages() {
+
+        const pagesElement = document.createElement('div');
+
+        if (this.#pages == "Unknown number of pages") { return this.#create(pagesElement, 'pages', this.#pages, this.#container) }
+
+        this.#create(pagesElement, 'pages', '', this.#container);
+
+        const pagesValue = document.createElement('span');
+        this.#create(pagesValue, 'pages-value', this.#pages, pagesElement);
+
+        const pagesText = document.createElement('span');
+        this.#create(pagesText, '', 'pages', pagesElement);
+
+    }
+
 }
 
 const library = new Library;
