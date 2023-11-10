@@ -73,3 +73,27 @@ class Library {
     #addToLibrary() { }
 
 }
+
+class Book {
+
+    #container
+
+    #title;
+    #author;
+    #publicationYear;
+    #pages;
+    #readState;
+
+    constructor(title, author, publicationYear, pages, readState) {
+
+        this.#container = document.createElement('div');
+
+        this.#title = title ? title : "No title";
+        this.#author = author ? author : "Unknown author";
+        this.#publicationYear = publicationYear ? Number(publicationYear) : "Unknown year of publication";
+        this.#pages = pages ? Number(pages) : "Unknown number of pages";
+        this.#readState = readState;
+
+    }
+
+}
