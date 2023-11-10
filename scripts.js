@@ -96,6 +96,13 @@ class Book {
 
     }
 
+    render() {
+
+        this.#container.dataset.count = library.booksContainer.children.length;
+        this.#create(this.#container, 'book', '', library.booksContainer);
+
+    }
+
     #create(element, elementClass, elementTextContent, elementParent) {
 
         if (elementClass !== '') { element.classList.add(elementClass); }
@@ -105,3 +112,5 @@ class Book {
     };
 
 }
+
+const library = new Library;
