@@ -70,7 +70,20 @@ class Library {
 
     }
 
-    #addToLibrary() { }
+    #addToLibrary(e) {
+
+        e.preventDefault();
+
+        const formData = new FormData(this.#form);
+        const book = new Book(formData.get("title"), formData.get("author"), formData.get("publication-year"), formData.get("pages-number"), false);
+
+        book.render();
+        this.#books.push(book);
+        this.#dialog.close();
+        this.#newBookButton.blur();
+        this.#form.reset();
+
+    }
 
     removeBook(target) {
 
@@ -131,6 +144,15 @@ class Book {
 
     };
 
+    #remove() { library.removeBook(this.#container); }
+
+    #toggleReadState() {
+
+        this.#readState == false ? this.#readState = true : this.#readState = false;
+        this.#container.classList.toggle('read');
+
+    }
+
     #renderTitle() {
 
         const titleElement = document.createElement('h3');
@@ -150,8 +172,6 @@ class Book {
         this.#create(deleteIcon, '', '', deleteButton);
 
     }
-
-    #remove() { library.removeBook(this.#container); }
 
     #renderAuthor() {
 
@@ -220,13 +240,6 @@ class Book {
 
         const readStateToggler = document.createElement('span');
         this.#create(readStateToggler, '', '', readStateLabel);
-
-    }
-
-    #toggleReadState() {
-
-        this.#readState == false ? this.#readState = true : this.#readState = false;
-        this.#container.classList.toggle('read');
 
     }
 
