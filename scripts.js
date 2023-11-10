@@ -72,6 +72,17 @@ class Library {
 
     #addToLibrary() { }
 
+    removeBook(target) {
+
+        if (target == undefined || target.parentElement !== this.#booksContainer) { throw new TypeError("The argument must contain an already existing DOM element") }
+
+        target.style.opacity = "0";
+        setTimeout(() => { target.remove() }, 300);
+        this.#books.splice(target.dataset.count, 1);
+        this.#books.forEach((book, index) => { book.container.dataset.count = index; })
+
+    }
+
 }
 
 class Book {
@@ -117,6 +128,21 @@ class Book {
         this.#create(titleElement, 'title', this.#title, this.#container);
 
     }
+
+    #renderDeleteButton() {
+
+        const deleteButton = document.createElement('button');
+        deleteButton.setAttribute('aria-label', 'Delete book');
+        deleteButton.addEventListener('click', this.#remove.bind(this))
+        this.#create(deleteButton, 'delete-button', '', this.#container);
+
+        const deleteIcon = library.deleteIcon.cloneNode(true);
+        deleteIcon.style.display = 'block';
+        this.#create(deleteIcon, '', '', deleteButton);
+
+    }
+
+    #remove() { library.removeBook(this.#container); }
 
     #renderAuthor() {
 
