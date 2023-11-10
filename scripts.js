@@ -12,6 +12,9 @@ class Library {
     #closeFormButton = document.querySelector('.close-button');
     #deleteIcon = document.querySelector('#delete-icon');
 
+    get booksContainer() { return this.#booksContainer; };
+    get deleteIcon() { return this.#deleteIcon };
+
     #bindEvents() {
 
         this.#newBookButton.addEventListener('click', this.#showForm.bind(this));
