@@ -166,6 +166,35 @@ class Book {
 
     }
 
+    #renderReadState() {
+
+        const readStateElement = document.createElement('div');
+        this.#create(readStateElement, 'read-state_toggler', '', this.#container);
+
+        const readStateText = document.createElement('span');
+        this.#create(readStateText, '', 'Mark as read', readStateElement);
+
+        const readStateLabel = document.createElement('label');
+        this.#create(readStateLabel, '', '', readStateElement);
+
+        const readStateInput = document.createElement('input');
+        readStateInput.addEventListener('change', this.#toggleReadState.bind(this));
+        readStateInput.setAttribute('type', 'checkbox');
+        readStateInput.setAttribute('aria-label', 'Mark as read');
+        this.#create(readStateInput, 'read-state_input', '', readStateLabel);
+
+        const readStateToggler = document.createElement('span');
+        this.#create(readStateToggler, '', '', readStateLabel);
+
+    }
+
+    #toggleReadState() {
+
+        this.#readState == false ? this.#readState = true : this.#readState = false;
+        this.#container.classList.toggle('read');
+
+    }
+
 }
 
 const library = new Library;
